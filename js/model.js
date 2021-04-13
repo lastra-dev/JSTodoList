@@ -6,8 +6,8 @@ export default class Model {
       this.todos = [
         {
           id: 0,
-          title: "Dummy Todo",
-          description: "This is a dummy todo",
+          title: "Assign Grades",
+          description: "Give Oscar a 10 😄",
           completed: false,
         },
       ];
@@ -32,7 +32,7 @@ export default class Model {
   }
 
   getTodos() {
-    return this.todos;
+    return this.todos.map((todo) => ({...todo}));
   }
 
   findTodo(id) {
