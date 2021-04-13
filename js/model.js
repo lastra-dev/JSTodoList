@@ -4,12 +4,23 @@ export default class Model {
     this.todos = JSON.parse(localStorage.getItem("todos"));
     if (!this.todos || this.todos.length < 1) {
       this.todos = [
-        { id: 0, title: "blabla", description: "blabla", completed: false },
+        {
+          id: 0,
+          title: "Dummy Todo",
+          description: "This is a dummy todo",
+          completed: false,
+        },
       ];
       this.currentId = 1;
     } else {
       this.currentId = this.todos[this.todos.length - 1].id + 1;
     }
+  }
+
+  editTodo(id, values) {
+    const index = this.findTodo(id);
+    Object.assign(this.todos[index], values);
+    this.save();
   }
 
   setView(view) {
